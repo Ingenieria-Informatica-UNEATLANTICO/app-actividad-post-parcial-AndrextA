@@ -1,0 +1,23 @@
+@startuml Diagrama_de_Estados_Usuario
+skinparam defaultTextAlignment center
+
+[*] --> EntrarAlServicioDeTransporte
+
+state EntrarAlServicioDeTransporte {
+  [*] --> IrALaParada
+  IrALaParada --> Espera : "Acudir a la parada"
+  Espera --> SubirAlAutobus : "Espera a una ruta"
+}
+
+EntrarAlServicioDeTransporte --> PagoElServicioDeTransporte : "Subir al autobús"
+
+state PagoElServicioDeTransporte {
+  [*] --> SacarTarjeta
+  SacarTarjeta --> PagarTarifa : "Ligada a su abono"
+  PagarTarifa --> Sentarse : "Paga su tarifa"
+  Sentarse --> [*] : "Se sienta"
+}
+
+PagoElServicioDeTransporte --> [*]
+
+@enduml

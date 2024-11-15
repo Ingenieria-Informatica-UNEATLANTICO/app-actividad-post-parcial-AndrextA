@@ -1,53 +1,42 @@
-# Repo plantilla para exámenes [PRG*x*|EDA*x*|IDSW*x*]@gII.uneatlantico
+# Ejercicio - Mejora del examen Parcial
 
-*Este documento es una guía para la realización y entrega de las evaluaciones en las asignaturas PRGx, EDAx e IDSWx del Grado en Ingeniería Informática. Detalla la estructura del repositorio de entrega, los artefactos requeridos y los criterios de evaluación.*
+## Examen Parcial
+- [Docuemto del Examen Parcial](/documents/examen_parcial.pdf)
+  
+## Modelo del Dominio
 
-## Enunciado del examen
+### Diagrama de Clases
 
-En el repo de la asignatura, carpeta `/evaluaciones`, apartado del examen correspondiente.
+|![Diagrama de Clases](/images/parcial/Diagrama_de_Clases.svg)|[Código](/modelosUML/parcial/diagrama_clases.pu)|
+|---|---|
 
-### Retos
+### Diagrama de Objetos
 
-Indicados dentro del enunciado del examen.
+|![Diagrama de Objetos](/images/parcial/Diagrama_de_Objetos.svg)|[Código](/modelosUML/parcial/diagrama_objetos.pu)|
+|---|---|
 
-## Entrega del examen
+### Diagramas de Estados
 
-En el repositorio destinado para tal fin en el examen.
+|![Diagrama de Estados Pasajero](/images/parcial/Diagrama_de_Estados_Usuario.svg)|[Código](/modelosUML/parcial/diagrama_estados_pasajero.pu)|
+|---|---|
+|![Diagrama de Estados Autobus](/images/parcial/Diagrama_de_Estados_Bus.svg)|[Código](/modelosUML/parcial/diagrama_estados_autobus.pu)|
 
-### Artefactos
+# Mejora del modelo del dominio
 
-A continuación una lista de artefactos que habitualmente constituyen la entrega de un examen:
+## Modelo del Dominio
 
-||||
-|-|-|-|
-|1|Archivo **README.md**|**Este archivo**, sobreescrito con su presentación de la propuesta de solución al examen.|
-|2|Código fuente|Proyecto ordenado dentro de la carpeta `/src`.|
-|3|Diagramas UML|Archivos fuente en la carpeta `/modelosUML`.|
-| ||Diagramas exportados en formato .svg en la carpeta `/images`. |
-|4|Imágenes|Si considera necesario incluir imágenes además de los diagramas, deben alojarse en la carpeta `/images` y estar referenciadas en el documento de entrega.|
-| ||Para diagramas use el formato .svg y para imágenes comunes, el formato .png.|
-|5|Documentación adicional|En la carpeta `/documents`.|
+### Diagrama de Clases
 
-### Qué se debe entregar
+|![Diagrama de Clases](/images/mejora/Diagrama_de_Clases_TransportePublico.svg)|[Código](/modelosUML/mejora/diagrama_clases.pu)|
+|---|---|
 
-- Los artefactos a entregar se indican en el examen de modo específico. Se especificará cuales son obligatorios.
-- Usted tiene la libertad de decidir si incluir o no los elementos que no sean explícitamente requeridos en el enunciado del examen. Su inclusión es facultativa y debe basarse en su criterio sobre la relevancia o aporte que estos elementos puedan tener para el trabajo presentado.
-- Todos los artefactos han de quedar adecuadamente relacionados desde el artefacto 1.
+### Diagrama de Objetos
 
-## Se valorará
+|![Diagrama de Objetos](/images/mejora/Diagrama_de_Objetos_TransportePublico.svg)|[Código](/modelosUML/mejora/diagrama_objetos.pu)|
+|---|---|
 
-- Proceso de creación.
-- Exactitud en la solución.
-- Adecuado reparto de responsabilidades.
-- Código limpio.
-- Claridad del código.
-- Gestión de estados.
-- Y, por supuesto, el uso de los temas vistos en clase.
+### Diagramas de Estados
 
-### Se propone/sugiere
-
-|||
-|-|-|
-|Planificación| Planifique su enfoque utilizando diagramas, esquemas, estados y/o pseudocódigo. Lo puede aportar en su repo, como diagrama o como imagen (foto), en la carpeta adecuada y enlazado desde el README.md|
-|Documentación|En dicho README.md puede explicar cómo cada parte contribuye a la solución general. Y como hemos debatido ampliamente, evite los comentarios a su código: ¡que el código se autoexplique!.|
-|Delegación de responsabilidades|Dedíquele un momento a reflexionar sobre cómo reparte las responsabilidades entre los diferentes artefactos y cómo esto afecta la claridad y eficiencia de su solución.|
+|![Diagrama de Estados Pasajero](/images/mejora/Diagrama_de_Estados_Pasajero.svg)|[Código](/modelosUML/mejora/diagrama_estado_pasajero.pu)|
+|---|---|
+|![Diagrama de Estados Autobus](/images/mejora/Diagrama_de_Estados_Bus.svg)|[Código](/modelosUML/mejora/diagrama_estado_autobus.pu)|

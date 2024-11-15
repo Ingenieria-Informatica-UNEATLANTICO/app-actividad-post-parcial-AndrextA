@@ -1,0 +1,49 @@
+@startuml Diagrama_de_Clases_TransportePublico
+title Diagrama de Clases - Transporte Público
+
+class "ServicioTransportePublico" {
+}
+
+class Incidencia
+class Externa
+class Interna
+class Horario
+class Ruta
+class Parada
+class Flota
+class Vehiculo
+class Usuario
+class Conductor
+class Pasajero
+class Pago
+class Abono
+class Tarifa
+
+"ServicioTransportePublico" --> Incidencia : "registra"
+"ServicioTransportePublico" --> Flota : "gestiona"
+"ServicioTransportePublico" --> Pago : "procesa"
+
+Incidencia -- Externa : "tipo"
+Incidencia -- Interna : "tipo"
+
+Interna --> Ruta : "afecta"
+Interna --> Horario : "afecta"
+Interna --> Flota : "afecta"
+Externa --> Ruta : "afecta"
+Externa --> Horario : "afecta"
+
+Ruta --> Horario : "tiene"
+Ruta --> Parada : "compuesta por"
+
+Flota --> Vehiculo : "incluye"
+
+Vehiculo --> Usuario : "utilizado por"
+Usuario --> Conductor : "maneja"
+Usuario --> Pasajero : "viaja en"
+
+Pasajero --> Tarifa : "paga"
+
+Pago --> Abono : "se asocia con"
+Abono --> Tarifa : "determina el precio de"
+
+@enduml

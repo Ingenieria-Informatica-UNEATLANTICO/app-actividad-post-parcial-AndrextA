@@ -1,0 +1,50 @@
+@startuml Diagrama_de_Clases
+hide circle
+
+class "Servicio transporte público" {
+}
+
+class Incidencias
+class Externa
+class Interna
+class Horario
+class Ruta
+class Paradas
+class Flota
+class Vehículos
+class Usuario
+class Conductor
+class Pasajero
+class Pagos
+class Abonos
+class Tarifa
+
+"Servicio transporte público" --> Incidencias : Tiene
+"Servicio transporte público" --> Flota : Tiene
+"Servicio transporte público" --> Pagos : Tiene
+
+Incidencias -r-> Externa
+Incidencias -l-> Interna
+
+Interna --> Ruta : afecta
+Interna --> Horario : afecta
+Interna --> Flota : afecta
+Externa --> Ruta : afecta
+Externa --> Horario : afecta
+
+Ruta --> Horario : tiene
+Ruta --> Paradas : tiene
+
+Flota --> Vehículos : compuesto por
+
+Vehículos --> Usuario : por usar
+Usuario --> Conductor : maneja
+Usuario --> Pasajero
+
+Pasajero --> Tarifa : paga
+
+
+Pagos --> Abonos : depende de
+Abonos --> Tarifa : pone el precio de la
+
+@enduml

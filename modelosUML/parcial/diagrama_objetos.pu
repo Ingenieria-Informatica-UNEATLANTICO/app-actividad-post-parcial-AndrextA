@@ -1,0 +1,51 @@
+@startuml Diagrama_de_Objetos
+title Diagrama de Objetos - Servicio de Transporte Público
+
+object "TUS : Servicio" as servicio
+
+object "Calle Correos : Externa" as externa {
+  AfectadoPor = "Ayuntamiento"
+}
+
+object "Puerta dañada : Interna" as interna {
+  Ubicación = "Puerta central"
+}
+
+object "Autobús : Vehículos" as autobus {
+    Bus = "Electrico"
+}
+
+object "Samuel : Conductor" as conductor{
+
+}
+
+object "Jesús : Pasajero" as pasajero
+
+object "Usuario : Abono" as abono {
+  Tipo = "Normal"
+}
+
+object "Tarjeta bus : Tarifa" as tarifa {
+  Costo = "0.33€"
+}
+
+object "07:00 a 20:00 : Horario" as horario
+
+object "Glorieta de alanos : Parada" as parada
+
+object "L1PECAN : Ruta" as ruta
+
+servicio --- externa : "afecta"
+servicio --- interna : "afecta"
+servicio --- autobus : "utiliza"
+servicio --- abono : "relacionado con"
+
+externa --- ruta : "pertenece a"
+interna --- ruta : "afecta a"
+ruta --- horario : "tiene"
+ruta --- parada : "contiene"
+
+autobus --- conductor : "conducido por"
+pasajero --- abono : "usa"
+abono --- tarifa : "define"
+@enduml

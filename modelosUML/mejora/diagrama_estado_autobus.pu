@@ -1,0 +1,33 @@
+@startuml Diagrama_de_Estados_Bus
+title Diagrama de Estados - Ciclo del Bus
+
+[*] --> Preparacion : Inicio del día
+
+state Preparacion {
+    [*] --> SubidaConductor
+    SubidaConductor --> ConfiguracionRuta : "Conductor sube y configura"
+    ConfiguracionRuta --> VerificacionHorario : "Verifica el horario"
+    VerificacionHorario --> Salida : "Sale del lugar principal"
+}
+
+Preparacion --> EnRuta : "Entra en ruta"
+
+state EnRuta {
+    [*] --> Parada
+    Parada --> RecogePasajeros : "Recoge pasajeros"
+    RecogePasajeros --> DejaPasajeros : "Deja pasajeros"
+    DejaPasajeros --> Parada : "Siguiente parada"
+    
+    Parada --> FinDeRuta : "Final de ruta"
+}
+
+EnRuta --> Preparacion : "Repite la ruta si el horario continúa"
+EnRuta --> FinDelDia : "Horario finalizado"
+
+state FinDelDia {
+    [*] --> Regreso : "Regresa al lugar principal y termina el día"
+
+}
+    Regreso --> [*] 
+
+@enduml

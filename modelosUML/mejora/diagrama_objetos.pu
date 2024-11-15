@@ -1,0 +1,89 @@
+@startuml Diagrama_de_Objetos_TransportePublico
+title Diagrama de Objetos - Transporte Público
+
+object "ServicioTransportePublico" as servicio {
+  Nombre = "Transporte Urbano Sostenible (TUS)"
+}
+
+object "incidenciaExterna : Externa" as incidenciaExterna {
+  Descripción = "Calle cerrada por mantenimiento"
+}
+
+object "incidenciaInterna : Interna" as incidenciaInterna {
+  Descripción = "Aire acondicionado dañado"
+}
+
+object "ruta : Ruta" as ruta {
+  ID = "R1"
+  Nombre = "Ruta Centro"
+}
+
+object "parada1 : Parada" as parada1 {
+  Nombre = "Parada Principal"
+}
+
+object "parada2 : Parada" as parada2 {
+  Nombre = "Plaza Central"
+}
+
+object "horarioRuta : Horario" as horarioRuta {
+  Horario = "7:00 a 20:00"
+}
+
+object "flota : Flota" as flota {
+  Nombre = "Flota Urbana"
+}
+
+object "vehiculo1 : Vehiculo" as vehiculo1 {
+  Placa = "ABC1234"
+  Modelo = "Autobús Híbrido"
+}
+
+object "conductor1 : Conductor" as conductor1 {
+  Nombre = "Carlos"
+  Apellido = "López"
+  Licencia = "B12345"
+}
+
+object "pasajero1 : Pasajero" as pasajero1 {
+  Nombre = "Ana"
+  Apellido = "Martínez"
+  ID = "P001"
+}
+
+object "tarifa : Tarifa" as tarifa {
+  Precio = "0.35€"
+}
+
+object "abono : Abono" as abono {
+  Tipo = "Mensual"
+  Precio = "30€"
+}
+
+object "pago1 : Pago" as pago1 {
+  Monto = "0.35€"
+  Fecha = "2023-11-15"
+}
+
+servicio -d- incidenciaExterna : "registra"
+servicio -d- incidenciaInterna : "registra"
+servicio -d- flota : "gestiona"
+servicio -d- pago1 : "procesa"
+
+incidenciaInterna -d- ruta : "afecta"
+incidenciaInterna -d- horarioRuta : "afecta"
+incidenciaExterna -d- ruta : "afecta"
+
+ruta -d- horarioRuta : "tiene"
+ruta -d- parada1 : "compuesta por"
+ruta -d- parada2 : "compuesta por"
+
+flota -d- vehiculo1 : "incluye"
+vehiculo1 -d- conductor1 : "manejado por"
+vehiculo1 -d- pasajero1 : "utilizado por"
+
+pasajero1 -d- tarifa : "paga"
+pago1 -d- abono : "se asocia con"
+abono -d- tarifa : "determina el precio de"
+
+@enduml
