@@ -1,0 +1,22 @@
+@startuml Diagrama_de_Estados_Pasajero
+title Diagrama de Estados - Interacción del Pasajero
+
+[*] --> EsperaEnParada : "Entra al servicio de transporte"
+
+state EsperaEnParada {
+    [*] --> Espera : "Espera a una ruta"
+    Espera --> AbordaAutobus : "Se sube al autobús"
+}
+
+EsperaEnParada --> EnTrayecto : "Pasajero a bordo"
+
+state EnTrayecto {
+    [*] --> PagoTarifa
+    PagoTarifa --> ConfirmarPago : "Paga su tarifa"
+    ConfirmarPago --> EncuentraAsiento : "Se sienta"
+}
+
+EnTrayecto --> FinDeViaje : "se baja en su destino"
+
+FinDeViaje --> [*]
+@enduml
