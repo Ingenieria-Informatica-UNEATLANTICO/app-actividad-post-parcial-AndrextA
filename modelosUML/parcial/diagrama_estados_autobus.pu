@@ -1,34 +1,23 @@
 @startuml Diagrama_de_Estados_Bus
 skinparam defaultTextAlignment center
 
-[*] --> InicioDelDia
+[*] --> EmpezarRuta
 
-state InicioDelDia {
-  [*] --> Preparacion
-  Preparacion --> SubidaConductor : "Conductor sube"
+state EmpezarRuta {
+  [*] --> SubidaConductor : "Conductor sube"
   SubidaConductor --> ConfiguracionRuta : "Configura la ruta"
   ConfiguracionRuta --> VerificacionHorario : "Verifica el horario"
-  VerificacionHorario --> Salida : "Sale del lugar principal de buses"
-}
-
-InicioDelDia --> EnRuta : "Sale del lugar principal de buses"
-
-state EnRuta {
-  [*] --> Parada
+  VerificacionHorario --> Salida : "Sale de la sede de buses"
+  Salida --> IniciaRuta
+  IniciaRuta --> Parada
   Parada --> RecogePasajeros : "Recoge pasajeros"
   RecogePasajeros --> DejaPasajeros : "Deja pasajeros"
   DejaPasajeros --> Parada : "Siguiente parada"
-  
   Parada --> FinDeRuta : "Fin de la ruta"
-}
-
-EnRuta --> InicioDelDia : "Inicia de nuevo si el horario continúa"
-EnRuta --> FinDelDia : "Horario terminado"
-
-state FinDelDia {
-  [*] --> Regreso
-  Regreso --> FinalizarDia : "Regresa al lugar principal de buses y finaliza el día"
-  FinalizarDia --> [*]
+  FinDeRuta --> Regreso
+  Regreso --> IniciaRuta
+  Regreso --> TerminaHorario : "Regresa la sede de buses y finaliza el día"
+  TerminaHorario --> [*]
 }
 
 @enduml
