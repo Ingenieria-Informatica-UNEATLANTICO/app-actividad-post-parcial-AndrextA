@@ -1,4 +1,4 @@
-@startuml
+@startuml Diagrama_de_Clases
 hide circle
 
 class "Servicio transporte público" {

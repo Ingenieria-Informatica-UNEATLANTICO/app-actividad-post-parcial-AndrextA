@@ -1,4 +1,4 @@
-@startuml Diagrama_de_Objetos_Transporte
+@startuml Diagrama_de_Objetos
 title Diagrama de Objetos - Servicio de Transporte Público
 
 object "TUS : Servicio" as servicio
